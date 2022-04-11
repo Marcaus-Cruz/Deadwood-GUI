@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="901.0" prefWidth="1527.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+      <Pane fx:id="introScreen" prefHeight="1096.0" prefWidth="1360.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="238.0" layoutY="110.0" text="Label">
+               <graphic>
+                  <ImageView nodeOrientation="INHERIT">
+                     <image>
+                        <Image url="@../resources/DeadwoodHeader.JPG" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="BOTTOM" layoutX="384.0" layoutY="588.0" prefHeight="150.0" prefWidth="650.0" text="How many Players?">
+               <graphic>
+                  <VBox>
+                     <children>
+                        <HBox alignment="CENTER">
+                           <children>
+                              <ButtonBar fx:id="numPlayersButtons">
+                                 <buttons>
+                                    <Button fx:id="twobtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#chooseNumPlayers" text="2">
+                                       <font>
+                                          <Font size="30.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="threebtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#chooseNumPlayers" text="3">
+                                       <font>
+                                          <Font size="30.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="fourbtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#chooseNumPlayers" text="4">
+                                       <font>
+                                          <Font size="30.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="fivebtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#chooseNumPlayers" text="5">
+                                       <font>
+                                          <Font size="30.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="sixbtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#chooseNumPlayers" text="6">
+                                       <font>
+                                          <Font size="30.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="sevenbtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#chooseNumPlayers" text="7">
+                                       <font>
+                                          <Font size="30.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="eightbtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#chooseNumPlayers" text="8">
+                                       <font>
+                                          <Font size="30.0" />
+                                       </font>
+                                    </Button>
+                                 </buttons>
+                              </ButtonBar>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Button fx:id="quitBtn2" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#quit" text="Quit Game" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </graphic>
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+		<BorderPane fx:id="gameScreen" prefHeight="901.0" prefWidth="1527.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+			<center>
+				<AnchorPane fx:id="boardPane" BorderPane.alignment="CENTER">
+					<children>
+						<ImageView fx:id="boardImg" preserveRatio="true">
+							<image>
+								<Image url="@../resources/board.jpg" />
+							</image>
+						</ImageView>
+								<Polygon fx:id="jail" fill="#1f93ff00" layoutX="363.0" layoutY="150.0" onMouseClicked="#movePlayer" points="-83.0, 63.0, 0.0, 63.0, 31.0, 95.0, 179.0, 95.0, 227.0, 44.0, 227.0, -143.0, -96.0, -143.0" scaleZ="2.0" stroke="TRANSPARENT" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="MOVE" />
+                     </cursor></Polygon>
+								<Polygon fx:id="mainStreet" fill="#1f93ff00" layoutX="740.0" layoutY="94.0" onMouseClicked="#movePlayer" points="-133.0, 95.0, 55.0, 95.0, 55.0, 70.0, 138.0, 70.0, 165.0, 110.0, 271.0, 110.0, 304.0, 139.0, 456.0, 139.0, 456.0, -87.0, -133.0, -87.0" scaleZ="2.0" stroke="TRANSPARENT" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="MOVE" />
+                     </cursor></Polygon>
+								<Polygon fx:id="generalStore" fill="#c7c7c700" layoutX="546.0" layoutY="422.0" onMouseClicked="#movePlayer" points="44.0, 21.0, 44.0, -168.0, -288.0, -168.0, -343.0, -116.0, -343.0, 21.0" scaleZ="2.0" stroke="TRANSPARENT" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="MOVE" />
+                     </cursor></Polygon>
+								<Polygon fx:id="saloon" fill="#c7c7c700" layoutX="756.0" layoutY="351.0" onMouseClicked="#movePlayer" points="-149.0, 92.0, 223.0, 92.0, 223.0, -64.0, 191.0, -109.0, 49.0, -109.0, 13.0, -147.0, -149.0, -147.0" scaleZ="2.0" stroke="TRANSPARENT" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="MOVE" />
+                     </cursor></Polygon>
+								<Polygon fx:id="bank" fill="#c7c7c700" layoutX="762.0" layoutY="603.0" onMouseClicked="#movePlayer" points="-155.0, 38.0, 230.0, 32.0, 230.0, -147.0, 13.0, -147.0, -155.0, -147.0" scaleZ="2.0" stroke="TRANSPARENT" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="MOVE" />
+                     </cursor></Polygon>
+								<Polygon fx:id="ranch" fill="#c7c7c700" layoutX="381.0" layoutY="607.0" onMouseClicked="#movePlayer" points="-149.0, 4.0, -119.0, 33.0, -119.0, 83.0, 180.0, 83.0, 180.0, 42.0, 214.0, 17.0, 208.0, -147.0, 13.0, -147.0, -149.0, -147.0" scaleZ="2.0" stroke="TRANSPARENT" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="MOVE" />
+                     </cursor></Polygon>
+								<Polygon fx:id="castingOffice" fill="#c7c7c700" layoutX="146.0" layoutY="607.0" onMouseClicked="#movePlayer" points="-143.0, 59.0, 19.0, 59.0, 67.0, 33.0, 67.0, -147.0, -143.0, -147.0" scaleZ="2.0" stroke="TRANSPARENT" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="MOVE" />
+                     </cursor></Polygon>
+								<Polygon fx:id="trailers" fill="#c7c7c700" layoutX="958.0" layoutY="415.0" onMouseClicked="#movePlayer" points="30.0, 32.0, 234.0, 32.0, 234.0, -165.0, 78.0, -165.0, 30.0, -141.0" scaleZ="2.0" stroke="TRANSPARENT" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="MOVE" />
+                     </cursor></Polygon>
+								<Polygon fx:id="hotel" fill="#c7c7c700" layoutX="963.0" layoutY="603.0" onMouseClicked="#movePlayer" points="-16.0, 284.0, 230.0, 284.0, 230.0, -147.0, 43.0, -147.0, 43.0, 54.0, -16.0, 90.0" scaleZ="2.0" stroke="TRANSPARENT" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="MOVE" />
+                     </cursor></Polygon>
+								<Polygon fx:id="church" fill="#c7c7c700" layoutX="750.0" layoutY="867.0" onMouseClicked="#movePlayer" points="-143.0, 24.0, 178.0, 24.0, 178.0, -147.0, 150.0, -184.0, 80.0, -184.0, 60.0, -206.0, -143.0, -206.0" scaleZ="2.0" stroke="TRANSPARENT" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="MOVE" />
+                     </cursor></Polygon>
+								<Polygon fx:id="secretHideout" fill="#c7c7c700" layoutX="378.0" layoutY="823.0" onMouseClicked="#movePlayer" points="-370.0, 68.0, 219.0, 68.0, 219.0, -121.0, 36.0, -121.0, 36.0, -73.0, -98.0, -73.0, -197.0, -137.0, -370.0, -137.0" scaleZ="2.0" stroke="TRANSPARENT" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="MOVE" />
+                     </cursor></Polygon>
+                  <Polygon fx:id="trainStation" fill="#c7c7c700" layoutX="59.0" layoutY="79.0" onMouseClicked="#movePlayer" points="142.0, 170.0, 180.0, 132.0, 191.0, -74.0, -50.0, -74.0, -50.0, 362.0, 126.0, 362.0, 126.0, 170.0" scaleZ="2.0" stroke="TRANSPARENT" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="MOVE" />
+                     </cursor></Polygon>
+								<ImageView fx:id="tsScene" fitHeight="116.0" fitWidth="205.0" layoutX="21.0" layoutY="68.0" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/cards/CardBack.jpg" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="jScene" fitHeight="116.0" fitWidth="205.0" layoutX="282.0" layoutY="27.0" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/cards/CardBack.jpg" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="gsScene" fitHeight="116.0" fitWidth="205.0" layoutX="370.0" layoutY="282.0" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/cards/CardBack.jpg" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="rScene" fitHeight="115.0" fitWidth="205.0" layoutX="252.0" layoutY="477.0" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/cards/CardBack.jpg" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="shScene" fitHeight="116.0" fitWidth="205.0" layoutX="27.0" layoutY="732.0" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/cards/CardBack.jpg" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="msScene" fitHeight="116.0" fitWidth="205.0" layoutX="969.0" layoutY="27.0" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/cards/CardBack.jpg" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="sScene" fitHeight="116.0" fitWidth="205.0" layoutX="632.0" layoutY="280.0" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/cards/CardBack.jpg" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="bScene" fitHeight="116.0" fitWidth="205.0" layoutX="623.0" layoutY="475.0" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/cards/CardBack.jpg" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="cScene" fitHeight="116.0" fitWidth="205.0" layoutX="623.0" layoutY="734.0" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/cards/CardBack.jpg" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="hScene" fitHeight="116.0" fitWidth="205.0" layoutX="969.0" layoutY="740.0" nodeOrientation="INHERIT" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/cards/CardBack.jpg" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="ts3" fitHeight="47.0" fitWidth="44.0" layoutX="37.0" layoutY="13.0" preserveRatio="true" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/shot.png" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="ts1" fitHeight="47.0" fitWidth="44.0" layoutX="143.0" layoutY="13.0" preserveRatio="true" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/shot.png" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="ts2" fitHeight="47.0" fitWidth="44.0" layoutX="91.0" layoutY="13.0" preserveRatio="true" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/shot.png" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="gs2" fitHeight="47.0" fitWidth="44.0" layoutX="315.0" layoutY="279.0" preserveRatio="true" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/shot.png" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="gs1" fitHeight="47.0" fitWidth="44.0" layoutX="315.0" layoutY="331.0" preserveRatio="true" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/shot.png" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="ms1" fitHeight="47.0" fitWidth="44.0" layoutX="805.0" layoutY="25.0" preserveRatio="true" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/shot.png" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="ms2" fitHeight="47.0" fitWidth="44.0" layoutX="859.0" layoutY="25.0" preserveRatio="true" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/shot.png" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="ms3" fitHeight="47.0" fitWidth="44.0" layoutX="913.0" layoutY="25.0" preserveRatio="true" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/shot.png" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="j1" fitHeight="47.0" fitWidth="44.0" layoutX="444.0" layoutY="157.0" preserveRatio="true" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/shot.png" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="s2" fitHeight="47.0" fitWidth="44.0" layoutX="627.0" layoutY="217.0" preserveRatio="true" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/shot.png" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="s1" fitHeight="47.0" fitWidth="44.0" layoutX="681.0" layoutY="218.0" preserveRatio="true" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/shot.png" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="r1" fitHeight="47.0" fitWidth="44.0" layoutX="526.0" layoutY="474.0" preserveRatio="true" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/shot.png" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="r2" fitHeight="47.0" fitWidth="44.0" layoutX="473.0" layoutY="474.0" preserveRatio="true" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/shot.png" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="b1" fitHeight="47.0" fitWidth="44.0" layoutX="841.0" layoutY="551.0" preserveRatio="true" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/shot.png" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="c2" fitHeight="47.0" fitWidth="44.0" layoutX="624.0" layoutY="677.0" preserveRatio="true" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/shot.png" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="c1" fitHeight="47.0" fitWidth="44.0" layoutX="684.0" layoutY="677.0" preserveRatio="true" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/shot.png" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="h3" fitHeight="47.0" fitWidth="44.0" layoutX="1007.0" layoutY="685.0" preserveRatio="true" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/shot.png" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="h1" fitHeight="47.0" fitWidth="44.0" layoutX="1112.0" layoutY="685.0" preserveRatio="true" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/shot.png" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="h2" fitHeight="47.0" fitWidth="44.0" layoutX="1060.0" layoutY="685.0" preserveRatio="true" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/shot.png" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="sh2" fitHeight="47.0" fitWidth="44.0" layoutX="301.0" layoutY="766.0" preserveRatio="true" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/shot.png" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="sh1" fitHeight="47.0" fitWidth="44.0" layoutX="356.0" layoutY="766.0" preserveRatio="true" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/shot.png" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="sh3" fitHeight="47.0" fitWidth="44.0" layoutX="246.0" layoutY="766.0" preserveRatio="true" scaleZ="3.0">
+									<image>
+										<Image url="@../resources/shot.png" />
+									</image>
+								</ImageView>
+                  <ImageView fx:id="player1" layoutX="1010.0" layoutY="310.0" visible="false">
+                     <image>
+                        <Image url="@../resources/dice/r1.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+                  <ImageView fx:id="player3" layoutX="1050.0" layoutY="310.0" visible="false">
+                     <image>
+                        <Image url="@../resources/dice/o1.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+                  <ImageView fx:id="player4" layoutX="1050.0" layoutY="355.0" visible="false">
+                     <image>
+                        <Image url="@../resources/dice/c1.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+                  <ImageView fx:id="player5" layoutX="1090.0" layoutY="310.0" visible="false">
+                     <image>
+                        <Image url="@../resources/dice/p1.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+                  <ImageView fx:id="player7" layoutX="1130.0" layoutY="310.0" visible="false">
+                     <image>
+                        <Image url="@../resources/dice/y1.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+                  <ImageView fx:id="player2" layoutX="1010.0" layoutY="355.0" visible="false">
+                     <image>
+                        <Image url="@../resources/dice/g1.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+                  <ImageView fx:id="player8" layoutX="1130.0" layoutY="355.0" visible="false">
+                     <image>
+                        <Image url="@../resources/dice/v1.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+                  <ImageView fx:id="player6" layoutX="1092.0" layoutY="355.0" visible="false">
+                     <image>
+                        <Image url="@../resources/dice/b1.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+                  <Rectangle fx:id="rank2" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="18.0" layoutX="51.0" layoutY="540.0" onMouseClicked="#desiredRank" stroke="TRANSPARENT" strokeType="INSIDE" visible="false" width="18.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Rectangle>
+                  <Rectangle fx:id="rank3" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="18.0" layoutX="52.0" layoutY="563.0" onMouseClicked="#desiredRank" stroke="TRANSPARENT" strokeType="INSIDE" visible="false" width="18.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Rectangle>
+                  <Rectangle fx:id="rank4" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="18.0" layoutX="50.0" layoutY="586.0" onMouseClicked="#desiredRank" stroke="TRANSPARENT" strokeType="INSIDE" visible="false" width="18.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Rectangle>
+                  <Rectangle fx:id="rank5" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="18.0" layoutX="52.0" layoutY="609.0" onMouseClicked="#desiredRank" stroke="TRANSPARENT" strokeType="INSIDE" visible="false" width="18.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Rectangle>
+                  <Rectangle fx:id="rank6" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="18.0" layoutX="51.0" layoutY="630.0" onMouseClicked="#desiredRank" stroke="TRANSPARENT" strokeType="INSIDE" visible="false" width="18.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Rectangle>
+                  <Rectangle fx:id="dollar2" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="18.0" layoutX="100.0" layoutY="543.0" onMouseClicked="#paymentMethod" stroke="TRANSPARENT" strokeType="INSIDE" visible="false" width="18.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Rectangle>
+                  <Rectangle fx:id="dollar3" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="18.0" layoutX="99.0" layoutY="566.0" onMouseClicked="#paymentMethod" stroke="TRANSPARENT" strokeType="INSIDE" visible="false" width="18.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Rectangle>
+                  <Rectangle fx:id="dollar4" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="18.0" layoutX="101.0" layoutY="586.0" onMouseClicked="#paymentMethod" stroke="TRANSPARENT" strokeType="INSIDE" visible="false" width="18.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Rectangle>
+                  <Rectangle fx:id="dollar5" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="18.0" layoutX="100.0" layoutY="610.0" onMouseClicked="#paymentMethod" stroke="TRANSPARENT" strokeType="INSIDE" visible="false" width="18.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Rectangle>
+                  <Rectangle fx:id="dollar6" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="18.0" layoutX="99.0" layoutY="632.0" onMouseClicked="#paymentMethod" stroke="TRANSPARENT" strokeType="INSIDE" visible="false" width="18.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Rectangle>
+                  <Rectangle fx:id="credit6" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="18.0" layoutX="149.0" layoutY="632.0" onMouseClicked="#paymentMethod" stroke="TRANSPARENT" strokeType="INSIDE" visible="false" width="18.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Rectangle>
+                  <Rectangle fx:id="credit5" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="18.0" layoutX="149.0" layoutY="609.0" onMouseClicked="#paymentMethod" stroke="TRANSPARENT" strokeType="INSIDE" visible="false" width="18.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Rectangle>
+                  <Rectangle fx:id="credit4" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="18.0" layoutX="149.0" layoutY="587.0" onMouseClicked="#paymentMethod" stroke="TRANSPARENT" strokeType="INSIDE" visible="false" width="18.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Rectangle>
+                  <Rectangle fx:id="credit3" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="18.0" layoutX="150.0" layoutY="566.0" onMouseClicked="#paymentMethod" stroke="TRANSPARENT" strokeType="INSIDE" visible="false" width="18.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Rectangle>
+                  <Rectangle fx:id="credit2" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="18.0" layoutX="148.0" layoutY="542.0" onMouseClicked="#paymentMethod" stroke="TRANSPARENT" strokeType="INSIDE" visible="false" width="18.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Rectangle>
+                  <ImageView fx:id="dieImg" layoutX="1150.0" layoutY="250.0" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../resources/dice/w1.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+					</children>
+				</AnchorPane>
+			</center>
+			<right>
+				<SplitPane dividerPositions="0.5, 0.5" orientation="VERTICAL" prefHeight="900.0" prefWidth="327.0" BorderPane.alignment="CENTER">
+					<items>
+                  <TextArea fx:id="gameplayInfo" editable="false" prefHeight="453.0" prefWidth="304.0" wrapText="true" />
+                  <Pane>
+                     <children>
+                        <Label fx:id="currentPlayerInfo" alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="298.0" prefWidth="162.0" text="Label" wrapText="true">
+                           <font>
+                              <Font name="Bernard MT Condensed" size="20.0" />
+                           </font>
+                        </Label>
+                        <VBox fx:id="takeRoleMenu" layoutX="162.0" layoutY="40.0" maxHeight="1.7976931348623157E308" onMouseClicked="#takeRole" prefHeight="258.0" prefWidth="162.0">
+                           <children>
+                              <ChoiceBox fx:id="chooseRole" prefHeight="0.0" prefWidth="150.0" />
+                           </children>
+                        </VBox>
+                        <Label fx:id="daysLeftCounter" alignment="TOP_RIGHT" contentDisplay="CENTER" layoutX="161.0" prefHeight="41.0" prefWidth="165.0" text="Label" textAlignment="CENTER">
+                           <font>
+                              <Font name="Bernard MT Condensed" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <VBox fx:id="controlPanel" alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="143.0" prefWidth="325.0">
+                     <children>
+                        <HBox>
+                           <children>
+                              <Button fx:id="takeRoleBtn" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#takeRole" text="Take Role" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Bernard MT Condensed" size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="actBtn" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#act" text="Act" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Bernard MT Condensed" size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="rehearseBtn" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#rehearse" text="Rehearse" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Bernard MT Condensed" size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <Button fx:id="upgradeBtn" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#upgradeRank" text="Upgrade" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Bernard MT Condensed" size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="2.5" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="moveBtn" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#promptMove" text="Move" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Bernard MT Condensed" size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="2.5" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="192.0">
+                           <children>
+                              <Button fx:id="endBtn" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#end" text="End Turn" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Bernard MT Condensed" size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="2.5" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="quitBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#quit" text="Quit Game" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Bernard MT Condensed" size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="2.5" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </VBox.margin>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </HBox>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </VBox>
+					</items>
+				</SplitPane>
+			</right>
+		</BorderPane>
+	</children>
+</AnchorPane>
